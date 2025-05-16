@@ -1,17 +1,15 @@
-# Summary
+# TBL Documentation
 
 ## Introduction
-* [Introduction](README.md)
-
-## Getting Started
-* [Creating Your First Bot](docs/getting-started.md)
+* [Overview](README.md)
+* [Getting Started](docs/getting-started.md)
 * [Bot Structure](docs/bot-structure.md)
 
-## Commands
-* [Command Basics](docs/commands.md)
-* [Command Structure](docs/command-structure.md)
-* [Special Commands](docs/special-commands.md)
-* [Handling Replies](docs/handling-replies.md)
+## Core Concepts
+* [Commands](docs/commands.md)
+* [Properties](docs/properties.md)
+* [Session Management](docs/session-management.md)
+* [Webhooks](docs/webhooks.md)
 
 ## Core Objects
 * [Bot Object](docs/bot-object.md)
@@ -20,39 +18,45 @@
 * [Message Object](docs/message-object.md)
 * [Update Object](docs/update-object.md)
 
+## Features
+* [Keyboards & Buttons](docs/keyboards.md)
+* [Callback Queries](docs/callback-queries.md)
+* [Inline Mode](docs/inline-mode.md)
+* [File Handling](docs/file-handling.md)
+* [Formatting Text](docs/formatting.md)
+
 ## Libraries
 * [Libraries Overview](docs/libraries.md)
 * [Random Library](docs/random-library.md)
 * [TgUtil Library](docs/tgutil-library.md)
 * [DateTimeFormat Library](docs/dateformat-library.md)
-* [Custom Libraries](docs/custom-libraries.md)
 
-## Advanced Features
-* [Session Management](docs/session-management.md)
-* [Property Storage](docs/property-storage.md)
-* [Inline Mode](docs/inline-mode.md)
-* [Callback Queries](docs/callback-queries.md)
-* [Webhooks](docs/webhooks.md)
-* [File Handling](docs/file-handling.md)
+## API Reference
+* [Messages](docs/api-reference/messages/README.md)
+* [Media](docs/api-reference/media/README.md)
+* [Chats](docs/api-reference/chats/README.md)
+* [Users](docs/api-reference/users/README.md)
+* [Inline](docs/api-reference/inline/README.md)
+
+## Type Reference
+* [Message](docs/types/message.md)
+* [User](docs/types/user.md)
+* [Chat](docs/types/chat.md)
+* [InlineKeyboardMarkup](docs/types/inline-keyboard-markup.md)
+* [All Types](docs/types/README.md)
 
 ## Tutorials
-* [Echo Bot](docs/tutorial-echo-bot.md)
-* [Weather Bot](docs/tutorial-weather-bot.md)
-* [Quiz Bot](docs/tutorial-quiz-bot.md)
-* [E-commerce Bot](docs/tutorial-ecommerce-bot.md)
+* [Simple Echo Bot](docs/tutorials/echo-bot.md)
+* [Weather Bot](docs/tutorials/weather-bot.md)
+* [Quiz Bot](docs/tutorials/quiz-bot.md)
+* [E-commerce Bot](docs/tutorials/e-commerce-bot.md)
 
 ## Best Practices
-* [Code Organization](docs/code-organization.md)
-* [Error Handling](docs/error-handling.md)
-* [Security](docs/security.md)
-* [Performance](docs/performance.md)
+* [Code Organization](docs/best-practices/code-organization.md)
+* [Error Handling](docs/best-practices/error-handling.md)
+* [Performance](docs/best-practices/performance.md)
+* [Security](docs/best-practices/security.md)
 
-## Reference
-* [TBL Functions](docs/tbl-functions.md)
-* [Telegram API Methods](docs/telegram-api-methods.md)
-* [Keyboard Reference](docs/keyboard-reference.md)
-* [Formatting Reference](docs/formatting-reference.md)
-
-## FAQ
-* [Frequently Asked Questions](docs/faq.md)
-* [Troubleshooting](docs/troubleshooting.md) 
+## Help
+* [Troubleshooting](docs/troubleshooting.md)
+* [FAQ](docs/faq.md) 
