@@ -20,6 +20,8 @@ Ready to build your very own Telegram bot? Let's turn you from bot-zero to bot-h
 
 ```javascript
 // Your token will look like this magical string:
+// Just a little js syntax, a step u just learn how to declare a variable
+
 const botToken = '123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ';
 ```
 
