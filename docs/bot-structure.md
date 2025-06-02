@@ -27,7 +27,7 @@ Want your bot to show clickable buttons? Easy.
 
 Use this format in your `keyboard` field:
 
-Help, Hello Ok
+Help, Hello \nOk
 
 - Use `,` to separate buttons *on the same row*  
 - Use `\n` (newline) to start a *new row* of buttons
