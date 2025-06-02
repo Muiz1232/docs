@@ -6,7 +6,7 @@ Ready to build your very own Telegram bot? Let's turn you from bot-zero to bot-h
 ## 🛠 What You'll Need
 
 - A [Telegram](https://telegram.org) account (you've got this!)
-- Access to the TBL platform (knock knock, who's there? Your future bot!)
+- Access to the TBH platform (knock knock, who's there? Your future bot!)
 - Basic JavaScript knowledge (optional, we'll hold your hand)
 
 ## 🚀 Let's Build This Bot!
