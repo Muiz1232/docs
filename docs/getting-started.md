@@ -36,7 +36,8 @@ const botToken = '123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ';
 Every bot needs a great first impression!
 
 **Command:** `/start`  
-**Response:** `"Welcome to my awesome bot! 🎉"`  
+**Response:** `"
+Welcome to my awesome bot! 🎉`  
 **Keyboard:**
 ```
 Help, About\nContact
@@ -50,18 +51,19 @@ Bot.sendMessage(`Hello ${user.first_name}! Ready for some fun?`);
 When users cry for help, your bot answers!
 
 **Command:** `help`  
-**Response:** `"Here's how to tame this bot:"`
+**Response:** `Here's how to tame this bot:`
 
 ```javascript
 Bot.sendMessage(
   "I can do these tricks:\n" +
   "👉 /start - Begin our adventure\n"
 );
+//we know that's too little to learn but we don't have time 😞 
 ```
 
 ### Step 5: About Command - Bot's Biography
 **Command:** `about`  
-**Response:** `"The story of me:"`
+**Response:** `The story of me:`
 
 ```javascript
 Bot.sendMessage(
