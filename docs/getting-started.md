@@ -36,8 +36,7 @@ const botToken = '123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ';
 Every bot needs a great first impression!
 
 **Command:** `/start`  
-**Response:** `"
-Welcome to my awesome bot! 🎉`  
+**Response:** `Welcome to my awesome bot! 🎉`  
 **Keyboard:**
 ```
 Help, About\nContact
