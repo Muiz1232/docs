@@ -3,7 +3,7 @@
 ## Introduction
 * [Overview](README.md)
 * [Getting Started](docs/getting-started.md)
-* [Bot Structure](docs/bot-structure.md)
+* [Command Structure](docs/command-structure.md)
 
 ## Core Concepts
 * [Commands](docs/commands.md)
