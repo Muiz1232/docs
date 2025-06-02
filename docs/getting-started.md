@@ -37,7 +37,7 @@ Every bot needs a great first impression!
 **Response:** `"Welcome to my awesome bot! 🎉"`  
 **Keyboard:**
 ```
-Help, About/\nContact
+Help, About\nContact
 ```
 
 ```javascript
