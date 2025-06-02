@@ -52,7 +52,7 @@ But TBL supports **special command names** with special powers:
 - Example:  
 ```js
 let myData = 555
-
+```
 Now myData is available in any other command. Like global scope... but cooler.
 
 
