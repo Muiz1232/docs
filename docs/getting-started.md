@@ -37,8 +37,7 @@ Every bot needs a great first impression!
 **Response:** `"Welcome to my awesome bot! 🎉"`  
 **Keyboard:**
 ```
-Help, About
-Contact
+Help, About/\nContact
 ```
 
 ```javascript
@@ -54,9 +53,7 @@ When users cry for help, your bot answers!
 ```javascript
 Bot.sendMessage(
   "I can do these tricks:\n" +
-  "👉 /start - Begin our adventure\n" +
-  "👉 /help - SOS signal\n" +
-  "👉 /about - My life story"
+  "👉 /start - Begin our adventure\n"
 );
 ```
 
