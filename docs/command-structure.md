@@ -33,12 +33,14 @@ The **brain juice**—where logic lives. Write **JavaScript** like a pro:
 - `if/else`, loops, `try/catch` for handling life’s unpredictability.  
 - Example:  
   ```javascript  
-  const user = await getUser(ctx.user.id);  
-  if (user.vip) {  
-    reply(`🎉 Welcome back, ${user.name}!`);  
+  // `user` is a built-in variable in TBL that holds user details 
+  if (user.premium) {  
+    msg.reply(`🎉 Welcome back, ${user.name}!`);  
   } else {  
-    reply(`Hi ${user.name}! Want to upgrade?`);  
-  }  
+    msg.reply(`Hi ${user.name}! Want to upgrade?`);  
+  }
+
+  //we know u thinking, what is `msg` here , pls be patient we have more things to explain 
   ```  
 
 ### **Keyboard Layout** *(Optional)*  
@@ -84,9 +86,16 @@ let botConfig = {
 // Shared function  
 function formatMoney(amount) {  
   return `${botConfig.currency} ${amount.toFixed(2)}`;  
-}  
+}
+
+/*
+// remeber no await here by default but u can make an async function here and use await into that function, otherwise TBL will think wtf is this code, like :
+async itAwait(...){
+await ...// use anything we don't care
+}
 ```  
 *Note:* Other commands can **access** `botConfig` and `formatMoney()` later!  
+*Special Note:* if u created a `async` call it like `await itAwait()` else it will return a `<promise>` that never maintained like we promised flexibility 
 
 ---
 
@@ -96,8 +105,9 @@ When things go wrong (and they will), this is your bot’s **panic button**.
 - Logs issues, apologizes, or blames the user (kidding… mostly).  
 - Example:  
   ```javascript  
-  reply(`Oops! Something broke. We’re on it.`);  
-  logError(`User ${ctx.user.id} caused: ${ctx.error}`);  
+  msg.reply(`Oops! Something broke. We’re on it.`);
+  // We have a built-in variable `error` that is a object, its holds error data like message,stack, type etc...
+  
   ```  
 
 ### **`@@` – The Janitor** *(Post-Command Cleanup)*  
@@ -106,16 +116,19 @@ Runs **after every command**, no matter what. Use for:
 - Analytics.  
 - Closing sessions.  
 - Example:  
-  ```javascript  
-  log(`Command ${ctx.command} finished for ${ctx.user.id}`);  
+  ```javascript
+  //create a function log() as u wish 
+  log(`Command ${filename} finished for ${user.id}`);
+  //sorry but we don't have good names , so commond name is defined as filename 
   ```  
 
 ### **`*` – The Wildcard Fallback**  
 When no other command matches, `*` steps in like, *"I gotchu."*  
-- Perfect for **NLP-based replies**.  
+- Perfect for **NLP-based replies**.
+- It's able to get all types of updates (that's the reason we call it master command)
 - Example:  
   ```javascript  
-  reply(`I didn’t understand that. Try /help?`);  
+  bot.reply(`I didn’t understand that. Try /help?`);  
   ```  
 
 ### **`/channel_update` – The Channel Ninja**  
