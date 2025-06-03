@@ -1,188 +1,272 @@
 
-# 📦 Commands in Detail
+# 📦 Commands in Detail - The Building Blocks of Your Bot
 
-In TBL (Tele Bot Lang), **commands** are the brain cells of your bot.  
-They control how it thinks, responds, interacts — basically, how it *vibes*.  
+In TBL (Tele Bot Lang), **commands** are the fundamental units that define your bot's intelligence and behavior. They control every aspect of interaction - from simple responses to complex conversational flows. Think of commands as the neurons in your bot's artificial brain that determine how it processes information and responds to users.
 
-Each command is made of some optional and some powerful components. Here's the full lowdown:
+## 🧱 Anatomy of a Command
 
----
+Every command in TBL consists of several powerful components that work together:
 
-## 🧱 Command Components
+### Command Name (Required)
+The unique identifier that triggers the command. This can be:
+- Standard commands like `/start`, `/help`
+- Natural language triggers like `hi`, `menu`
+- Special system commands (explained in detail later)
 
-Every command can include:
+### Answer Field (Optional)
+The static text response your bot sends immediately when the command executes. This field supports:
+- Markdown formatting for rich text
+- Multi-line responses
+- Simple text-only replies when no dynamic processing is needed
 
-- **Name**: The identifier or trigger — like `/start`, `menu`, or `help`.
-- **Answer** *(optional)*: A static text reply that your bot sends when the command runs. Markdown formatting supported.
-- **Code** *(optional)*: Write dynamic TBL code that does stuff — fetch data, call APIs, control logic.
-- **Keyboard** *(optional)*: Show custom Telegram keyboards for quick replies.  
-- **Aliases** *(optional)*: Extra command triggers like `hii, hey, hello`. One command, many faces.
-- **need_reply** *(optional)*: If `true`, the bot will wait for a user's reply after executing this command.
+### Code Block (Optional)
+The brain of your command where dynamic processing happens:
+- Full TBL scripting capabilities
+- API calls, data processing, conditional logic
+- Can work alongside or instead of static answers
+- Supports both synchronous and asynchronous operations
 
----
+### Keyboard Layout (Optional)
+Creates interactive button interfaces:
+- Inline keyboards for instant responses
+- Custom layouts with row/column control
+- Dynamic keyboard generation through code
+- Persistent or one-time-use keyboards
 
-## 🎹 Keyboard Structure
+### Aliases System (Optional)
+Allows multiple triggering phrases for one command:
+- Natural language variations (hi, hello, hey)
+- Common misspellings or abbreviations
+- Multi-language support through alternate triggers
 
-Want your bot to show clickable buttons? Easy.
+### Need Reply Flag (Optional)
+When enabled (`need_reply: true`):
+- Bot enters conversational mode after command
+- Waits for user's next message
+- Creates stateful interactions
+- Perfect for questionnaires or multi-step processes
 
-Use this format in your `keyboard` field
+## 🎹 Designing Interactive Keyboards
 
-- Use `,` to separate buttons *on the same row*  
-- Use `\n` (newline) to start a *new row* of buttons
+Keyboards transform your bot from passive responder to interactive interface. The keyboard syntax provides precise layout control:
 
-> So `"Help, Hello\nOk"` will render two buttons on the first row and one on the second.
+### Basic Syntax Rules
+- **Comma (`,`)** separates buttons on the same row  
+  `"Yes,No,Maybe"` creates three side-by-side buttons
+- **Newline (`\n`)** starts a new button row  
+  `"First row\nSecond row"` creates two vertical buttons
+- **Combination** allows complex layouts  
+  `"Buy,Info\nCancel,Help"` creates a 2x2 grid
 
----
+### Advanced Keyboard Features
+- Buttons can trigger commands or URLs
+- Dynamic keyboards can be generated in code
+- Keyboard persistence settings (one-time or sticky)
+- Inline keyboards for seamless message integration
 
-## 🧠 Command Name & Special Types
-
-Normally, your command will look like this:
-
-/start /help /menu
-
-But TBL supports **special command names** with special powers:
-
----
-
-### `@` — **Before Everything**
-
-- Runs **before** any normal command.
-- Great for defining shared functions, variables, or setup code.
-- Runs **synchronously only**.
-- Example:  
+Example of a well-structured keyboard:
 ```js
-let myData = 555
+"Shop, Support\nView Cart, Track Order\n↩ Main Menu"
 ```
-Now myData is available in any other command. Like global scope... but cooler.
 
+## 🧠 Special Command Types - Beyond Basic Triggers
+
+TBL features several special command types that handle specific scenarios or provide system-level functionality:
+
+### `@` - The Initialization Command
+The setup maestro that runs before any other command:
+- **Execution Timing**: Immediate bot launch
+- **Use Cases**:
+  - Global variable initialization
+  - Shared function definitions
+  - Bot configuration settings
+- **Special Characteristics**:
+  - Always synchronous
+  - No user triggering
+  - Creates shared resources
+
+Example initialization:
+```js
+let botConfig = {
+  adminIds: [12345, 67890],
+  currency: "USD"
+}
+
+function formatPrice(amount) {
+  return `${botConfig.currency} ${amount.toFixed(2)}`
+}
+```
+
+### `!` - The Error Handler
+The safety net for your bot:
+- **Automatic Triggering** on errors or crashes
+- **Fallback Behavior** when normal commands fail
+- **Error Context** available in code:
+  - Error message
+  - Stack trace
+  - User context
+
+Typical uses:
+- Error logging
+- User-friendly failure messages
+- Recovery procedures
+
+### `@@` - The Cleanup Command
+The post-processor that runs after every interaction:
+- **Execution Guarantee**: Runs regardless of success/failure
+- **Common Uses**:
+  - Conversation analytics
+  - Resource cleanup
+  - Session logging
+  - Follow-up reminders
+
+### `*` - The Universal Fallback
+The catch-all when no other command matches:
+- **Trigger Condition**: No other command matches
+- **Flexible Uses**:
+  - Dynamic content handling
+  - Natural language processing
+  - Context-aware responses
+  - Progressive disclosure menus
+
+### `/channel_update` - Channel Specialist
+Handles channel-specific events:
+- **Automatic Triggering** on channel updates
+- **Specialized For**:
+  - Channel post analytics
+  - Broadcast content handling
+  - Subscriber management
+
+### `/inline_query` - Inline Request Handler
+Processes inline queries (@botname queries):
+- **Unique Features**:
+  - Handles real-time search requests
+  - Returns dynamic result sets
+  - Supports cached results
+- **Fallback**: To `*` command if not defined
+
+## 🔐 The Code Field - Where Magic Happens
+
+The code block transforms simple commands into powerful interactions:
+
+### Core Capabilities
+- **Full JavaScript Syntax**:
+  - Variables, functions, conditionals
+  - Loops and iterations
+  - Error handling
+- **Async/Await Support**:
+  - Network requests
+  - Database operations
+  - File processing
+- **Telegram API Access**:
+  - Message manipulation
+  - User management
+  - Media handling
+
+### Code Field Advantages
+- **State Management**: Track conversation context
+- **Dynamic Responses**: Generate personalized replies
+- **Multi-step Flows**: Guide users through processes
+- **External Integration**: Connect to databases/APIs
+
+Example showing multiple capabilities:
+```js
+// Fetch data from external API
+const userData = await getUserProfile(ctx.user.id)
+
+// Conditional response
+if (userData.premium) {
+  reply(`Welcome back VIP member! 🎩`)
+  showPremiumMenu()
+} else {
+  reply(`Hello ${userData.name}! Upgrade to premium?`)
+  showUpgradeButton()
+}
+
+// Log interaction
+logAnalytics('command_executed', ctx)
+```
+
+## 🗣️ Aliases - Multiple Personalities
+
+Aliases multiply your command's accessibility:
+
+### Key Benefits
+- **Natural Conversation**: `hi`, `hello`, `hey` all work
+- **Language Support**: `hola`, `bonjour`, `namaste`
+- **Typo Forgiveness**: `helo`, `hlep`, `halp`
+- **Command Variations**: `/start`, `begin`, `menu`
+
+Implementation Example:
+```
+aliases: hii, hey, hello, greetings, sup
+```
+
+## 📝 Answer Field - Quick Static Responses
+
+When you need simple replies without code:
+
+### Formatting Features
+- **Markdown Support**:
+  - *Italics*, **bold**, `code`
+  - [Links](https://example.com)
+  - Headers, lists, quotes
+- **Multi-line Responses**:
+  ```
+  Line one
+  Line two
+  ```
+- **Emoji Integration**: 🚀 👍 🎉
+
+### Smart Combinations
+- Use with code for hybrid responses
+- Can be conditionally overridden
+- Supports basic variable interpolation
+
+Example with markdown:
+```
+*Welcome* to **Bot World**!
+
+Choose an option:
+- 🛍️ Shop
+- ℹ️ Info
+- 🆘 Help
+```
+
+## � Execution Models - Sync vs Async
+
+TBL intelligently handles execution timing:
+
+### Synchronous Execution
+- Immediate processing
+- Simple operations
+- Used in `@` command
+- Blocking but predictable
+
+### Asynchronous Execution
+- Non-blocking operations
+- API/database calls
+- Parallel processing
+- Most commands support await
+
+Example showing async/await:
+```js
+// Async data fetching
+const data = await fetch('https://api.example.com/data')
+
+// Process response
+if (data.status === 'success') {
+  reply(`Data received: ${data.value}`)
+} else {
+  reply(`Error: ${data.message}`)
+}
+```
+
+## 🎁 Command Design Best Practices
+
+### Structure Recommendations
+1. **Clear Naming**: Use intuitive command names
+2. **Modular Design**: Split complex flows into sub-commands
+3. **Consistent Responses**: Maintain uniform messaging style
+4. **Error Handling**: Plan for failure cases
 
----
-
-! — Error Handler
-
-If your bot crashes or something throws an error... boom, this command catches it.
-
-Acts as a universal fallback when stuff breaks.
-
-Saves you from ugly silence or bot confusion.
-
-
-
----
-
-@@ — After Everything
-
-Runs after every command, regardless of which one it was.
-
-Perfect for cleanup tasks, logging, analytics, or just a cheeky "P.S. bye!" message.
-
-
-
----
-
-* — Wildcard Master
-
-The ultimate catch-all.
-
-If no other command matches, TBL runs this.
-
-Great for building dynamic menus, fallback messages, or fuzzy search behavior.
-
-
-
----
-
-/channel_update — Channel Update Handler
-
-Automatically runs when Telegram sends a channel update.
-
-If this doesn’t exist, it'll fallback to the * command.
-
-
-
----
-
-/Inline_query — Inline Query Handler
-
-Handles inline queries (@YourBot query) if defined.
-
-Otherwise, falls back to the * command if available.
-
-
-
----
-
-🔐 Code Field
-
-This is where the action happens.
-
-Write TBL code directly in the TBL Code Editor.
-Supports await, functions, logic, and all the spicy stuff — even async operations!
-
-> You can call APIs, manage memory, conditionally respond, send multiple messages, create keyboards dynamically, and more.
-
-
-
-
----
-
-🗣️ Aliases
-
-Why stick to one trigger when you can have them all?
-
-Set multiple alternative names for a command like this:
-
-hii, hey, hello
-
-Now your user can say anything casual, and your bot will still know what’s up.
-(We call this the “bot therapist” feature.)
-
-
----
-
-📝 Answer Field
-
-Use this for simple, static replies. Markdown formatting is supported, so go crazy with bolds, italics, and links.
-
-*Welcome!*  
-Tap one of the buttons below to begin 👇
-
-> You can mix answer and code — send a static reply, and then run code. It's your party.
-
-
-
-
----
-
-🧬 Async or Sync?
-
-Most TBL code is asynchronous-ready.
-
-Yes, you can use await inside your command code — TBL handles it gracefully.
-
-The only exception: the @ command (the before-all one) is always synchronous.
-Why? Because it runs instantly before everything — think of it like the bootloader.
-
-But it’s special — you can define variables or helper functions here, and use them anywhere else.
-
-
----
-
-🎁 Quick Summary
-
-Define your bot’s behavior using simple, powerful command blocks.
-
-Customize them with answers, code, buttons, and aliases.
-
-Use special commands like @, !, and * for total control.
-
-Almost everything supports await, so async logic just works.
-
-
-
----
-
-Make bots like a wizard, not a programmer. 🧙‍♂️
-Now go write some commands and let your bot speak your mind.
-
----
