@@ -1,11 +1,11 @@
 
-# 📦 Commands in Detail – The Building Blocks of Your Bot's Brain  
+# Commands in Detail – The Building Blocks of Your Bot's Brain  
 
 Welcome to the core of **Tele Bot Lang (TBL)**—where every command you write becomes a neuron in your bot’s *adorably artificial* brain. Commands are what make your bot think, respond, and occasionally pretend it has a personality. Let’s break it down.  
 
 ---
 
-## 🧱 Anatomy of a Command  
+## Anatomy of a Command  
 
 Each TBL command is like a tiny robot: it has a **name**, a **script**, an optional **answer**, and sometimes, a few **buttons** to make it interactive.  
 
