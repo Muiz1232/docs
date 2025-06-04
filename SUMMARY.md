@@ -3,9 +3,10 @@
 ## Introduction
 * [Overview](README.md)
 * [Getting Started](docs/getting-started.md)
-* [Command Structure](docs/command-structure.md)
+
 
 ## Core Concepts
+* [Command Structure](docs/command-structure.md)
 * [Commands](docs/commands.md)
 * [Properties](docs/properties.md)
 * [Session Management](docs/session-management.md)
