@@ -7,7 +7,7 @@
 
 ## Core Concepts
 * [Command Structure](docs/command-structure.md)
-* [Commands](docs/commands.md)
+* [variables](docs/variables.md)
 * [Properties](docs/properties.md)
 * [Session Management](docs/session-management.md)
 * [Webhooks](docs/webhooks.md)
