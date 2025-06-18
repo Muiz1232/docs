@@ -128,7 +128,7 @@ When no other command matches, `*` steps in like, *"I gotchu."*
 - It's able to get all types of updates (that's the reason we call it master command)
 - Example:  
   ```javascript  
-  bot.reply(`I didn’t understand that. Try /help?`);  
+  msg.reply(`I didn’t understand that. Try /help?`);  
   ```  
 
 ### **`/channel_update` – The Channel Ninja**  
