@@ -61,3 +61,6 @@ It’s simple, powerful, and just cheeky enough to keep things interesting.
 Dive in, explore, and let your bots do the talking.  
 
 Your bot’s next adventure starts here.
+
+
+https://telesevices.gitbook.io/telesevices-docs/
