@@ -35,9 +35,9 @@ The **brain juice**—where logic lives. Write **JavaScript** like a pro:
   ```javascript  
   // `user` is a built-in variable in TBL that holds user details 
   if (user.premium) {  
-    msg.reply(`🎉 Welcome back, ${user.name}!`);  
+    msg.reply(`🎉 Welcome back, ${user.first_name}!`);  
   } else {  
-    msg.reply(`Hi ${user.name}! Want to upgrade?`);  
+    msg.reply(`Hi ${user.first_name}! Want to upgrade?`);  
   }
 
   //we know u thinking, what is `msg` here , pls be patient we have more things to explain 
@@ -90,12 +90,12 @@ function formatMoney(amount) {
 
 /*
 // remeber no await here by default but u can make an async function here and use await into that function, otherwise TBL will think wtf is this code, like :
-async itAwait(...){
+async itAsyncFunction(...){
 await ...// use anything we don't care
 }
 ```  
 *Note:* Other commands can **access** `botConfig` and `formatMoney()` later!  
-*Special Note:* if u created a `async` call it like `await itAwait()` else it will return a `<promise>` that never maintained like we promised flexibility 
+*Special Note:* if u created a `async` call it like `await itAsyncFunction()` else it will return a `<promise>` that never maintained like we promised flexibility 
 
 ---
 
